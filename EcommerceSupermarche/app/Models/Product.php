@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Models;
@@ -9,13 +10,12 @@ class Product extends Model
 {
     use HasFactory;
 
- public $table="produits";
+ // public $table="products";
 
- protected $primaryKey="Id_Produit";
+ // protected $primaryKey="Id_Produit";
 
  public function image()
  {
      return $this->hasMany(Image::class,'Id_Produit');
  }
 }
-
