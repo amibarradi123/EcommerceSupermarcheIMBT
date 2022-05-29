@@ -119,7 +119,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="/admin-ShowUsers">
+            <a class="nav-link text-white " href="/admin-ShowUsers">
             
             <span class="material-symbols-outlined">
               account_circle
@@ -297,17 +297,433 @@
  
   {{-- testing --}}
   <div style="padding-left: 15%;padding-right: 1%;color:black">
-    <center>
-      <div style="width:70%;">
+    @isset($clients)
+    Clients LIST:
+
+    <table class="table table-striped table-hover" >
         
-        <div style="background-image: linear-gradient(195deg, #42424a 0%, #191919 100%); padding:10%; border-radius: 20px">
-          
-          <b> <h3 style="color: #5673ca">WELCOME ADMIN, <br> <br> Choose one of the following items in the  <a href="/admin-ShowUsers"><i><u>sidebar</u></i></a>  to proceed <br> <--</h3></b> <br>
-          
-        </div>
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id_Client</center></th>
+            <th><center>Nom_Client</center></th>
+            <th><center>Prenom_Client </center></th>
+            <th><center>DateNaissance_Client</center></th>
+            <th><center>Tel_Client</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
     
-      </div> </center>
-  </div>
+    @foreach($clients as $clients)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$clients->Id_Client}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$clients->Nom_Client}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$clients->Prenom_Client}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$clients->DateNaissance_Client}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$clients->Tel_Client}}</center></td>
+        
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>    
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    @isset($categories)
+    Categories LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Nom_Catégorie</center></th>
+            <th><center>Photo_Categorie</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($categories as $categories)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$categories->Id_Categorie}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$categories->Nom_Catégorie}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$categories->Photo_Categorie}}</center></td> 
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    @isset($codepromo)
+    Code promo LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>CodePromo</center></th>
+            <th><center>Pourcentage</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($codepromo as $codepromo)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$codepromo->Id_CodePromo}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$codepromo->CodePromo}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$codepromo->Pourcentage}}</center></td> 
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    @isset($commandes)
+    Commandes LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Date du Commande</center></th>
+            <th><center>Adresse Liv Commande</center></th>
+            <th><center>Montant Commande</center></th>
+            <th><center>Id Client</center></th>
+            <th><center> Etat de Commande </center></th>
+            {{-- <th><center>password (crypted)</center></th> --}}
+            <th><center> Code Promo</center></th>
+            <th><center>Mode de Paiement</center></th>
+            
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($commandes as $commandes)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->Id_Commande}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->Date_Commande}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->Adresse_Liv_Commande}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->Montant_Commande}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->Id_Client}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->Etat_Commande}}</center></td>
+        {{-- <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->password}}</center></td> --}}
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->CodePromo}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commandes->ModePaiement}}</center></td>
+        
+
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+    
+    @isset($commentaires)
+    Comments LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Text Commentaire</center></th>
+            <th><center>Id Client</center></th>
+            <th><center>Id Produit</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($commentaires as $commentaires)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commentaires->Id_Commentaire}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commentaires->Text_Commentaire}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commentaires->Id_Client}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$commentaires->Id_Produit}}</center></td>
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    @isset($fournisseurs)
+    Fournisseurs LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Nom Fournisseur</center></th>
+            <th><center>Prenom Fournisseur</center></th>
+            <th><center>DateNaissance Fournisseur</center></th>
+            <th><center>Tel Fournisseur</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($fournisseurs as $fournisseurs)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$fournisseurs->Id_Fournisseur}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$fournisseurs->Nom_Fournisseur}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$fournisseurs->Prenom_Fournisseur}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$fournisseurs->DateNaissance_Fournisseur}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$fournisseurs->Tel_Fournisseur}}</center></td>
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    @isset($livraisons)
+    Livraisons LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Date Livraison</center></th>
+            <th><center>Adesse Livraison</center></th>
+            <th><center>Id Livreur</center></th>
+            <th><center>Id Commande</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($livraisons as $livraisons)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livraisons->Id_Livraison}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livraisons->Date_Livraison}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livraisons->Adesse_Livraison}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livraisons->Id_Livreur}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livraisons->Id_Commande}}</center></td>
+
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    @isset($livreurs)
+    Livreurs LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Nom Livreur</center></th>
+            <th><center>Tel Livreur</center></th>
+            <th><center>Email Livreur</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($livreurs as $livreurs)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livreurs->Id_Livreur}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livreurs->Nom_Livreur}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livreurs->Tel_Livreur}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$livreurs->Email_Livreur}}</center></td>
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+
+    
+    
+    @isset($produits)
+    Products LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Nom Produit</center></th>
+            <th><center>Prix Produit</center></th>
+            <th><center>Quantite Produit</center></th>
+            <th><center>Date Pub Produit</center></th>
+            <th><center>Id Categorie</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($produits as $produits)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$produits->Id_Produit}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$produits->Nom_Produit}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$produits->Prix_Produit}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$produits->Quantite_Produit}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$produits->Date_Pub_Produit}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$produits->Id_Categorie}}</center></td>
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
+    
+    @isset($users)
+    Users LIST:
+
+    <table class="table table-striped table-hover" >
+        
+        <tr style="white-space:pre-wrap; word-wrap:break-word">
+            <th><center>Id</center></th>
+            <th><center>Nom Utilisateur</center></th>
+            <th><center>Email</center></th>
+            <th><center>Email verified at</center></th>
+            <th><center>role</center></th>
+            <th><center>remember_token</center></th>
+            <th><center>created_at</center></th>
+            <th><center>updated_at</center></th>
+            <th><center>VIEW</center></th>
+            <th><center>UPDATE</center></th>
+            <th><center>DELETE</center></th>
+        </tr>
+    
+    @foreach($users as $users)
+    
+    <tr style="vertical-align: middle">
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->id}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->name}}</td>         
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->email}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->email_verified_at}}</center></td> 
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->role}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->remember_token}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->created_at}}</center></td>
+        <td style="white-space:pre-wrap; word-wrap:break-word"><center>{{$users->updated_at}}</center></td>
+        
+         <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/View.png')}}">
+            </div></center></td>    
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Repair.png')}}">
+            </div></center></td>  
+        <td style=" vertical-align: middle"><center>
+            <div style="display: inline">              
+              <img src="{{asset('/icons/png/24x24/Delete.png')}}">
+            </div></center></td>
+    </tr>
+    @endforeach
+</table>
+    @endisset
 
   <!--   Core JS Files   -->
   <script src="{{asset('/js/core/popper.min.js')}}"></script>

@@ -86,8 +86,8 @@ class AdminController extends Controller
     
     public function ShowUsers()
     {
-        $users = DB::table('user')
-        ->orderby('Id_Utilisateur','desc')
+        $users = DB::table('users')
+        ->orderby('id','desc')
         ->get(); 
 
         return view('admin',compact('users'));
@@ -164,7 +164,7 @@ class AdminController extends Controller
      }
      return redirect('cart');
     }
-    }
+    
 
     /**
      * Remove the specified resource from storage.

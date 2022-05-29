@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,27 @@ Route::resource('product', 'App\Http\Controllers\ProductController');
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
+//admin views
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 
 Route::get('/create', 'App\Http\Controllers\ProductController@create');
+
+Route::get('/admin-ShowClients', [AdminController::class, 'ShowClients']);
+
+Route::get('/admin-ShowCommandes', [AdminController::class, 'ShowCommandes']);
+
+Route::get('/admin-ShowCommentaires', [AdminController::class, 'ShowCommentaires']);
+
+Route::get('/admin-ShowFournisseurs', [AdminController::class, 'ShowFournisseurs']);
+
+Route::get('/admin-ShowLivraisons', [AdminController::class, 'ShowLivraisons']);
+
+Route::get('/admin-ShowLivreurs', [AdminController::class, 'ShowLivreurs']);
+
+Route::get('/admin-ShowProduits', [AdminController::class, 'ShowProduits']);
+
+Route::get('/admin-ShowUsers', [AdminController::class, 'ShowUsers']);
+
+Route::get('/admin-ShowCategories', [AdminController::class, 'ShowCategories']);
+
+Route::get('/admin-ShowCodepromo', [AdminController::class, 'ShowCodepromo']);
