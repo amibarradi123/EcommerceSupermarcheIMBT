@@ -28,3 +28,5 @@ Route::get('remove-from-cart/{id}', 'App\Http\Controllers\ProductController@remo
 Route::resource('product', 'App\Http\Controllers\ProductController');
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');

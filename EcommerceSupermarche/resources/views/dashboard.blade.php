@@ -681,8 +681,6 @@
     @endforeach
 </table>
     @endisset
-
-    @endisset
     
     @isset($user)
     RELATIONS LIST:

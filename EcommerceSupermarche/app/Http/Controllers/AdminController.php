@@ -152,7 +152,18 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         if($id && $request->input('quantite'))
+     {
+         $cart = session()->get('cart');
+
+         $cart[$id]["quantite"] = $request->input('quantite');
+
+         session()->put('cart', $cart);
+
+         session()->flash('success', 'Cart updated successfully');
+     }
+     return redirect('cart');
+    }
     }
 
     /**
