@@ -9,9 +9,9 @@ class Image extends Model
 {
     use HasFactory;
 
-    // public $table="images";
+    public $table="images_produit";
 
-    // protected $primaryKey="Id_Image";
+    protected $primaryKey="Id_Image";
 
     public function product()
     {
