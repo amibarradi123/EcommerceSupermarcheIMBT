@@ -30,3 +30,5 @@ Route::resource('product', 'App\Http\Controllers\ProductController');
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
+
+Route::get('/create', 'App\Http\Controllers\ProductController@store');

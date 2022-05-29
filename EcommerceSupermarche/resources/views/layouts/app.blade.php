@@ -126,6 +126,8 @@
                             <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
+
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -138,6 +140,22 @@
                                 </li>
                             @endif
                         @else
+                        <li class="nav-item dropdown">
+                                <a  class="nav-link" href="{{ url('create') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                                               @if (auth()->user()->isAdmin())
+                                                  {{ __('Create') }}
+                                                @endif
+                                    </a>                                             
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a  class="nav-link" href="{{ url('/dashboard') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                                               @if (auth()->user()->isAdmin())
+                                                  {{ __('Dashboard') }}
+                                                @endif
+                                    </a>                                             
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -155,15 +173,6 @@
                                     </form>
                                 </div>
                             </li>
-
-                            <li class="nav-item dropdown">
-                                <a  class="nav-link" href="{{ url('/dashboard') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                               @if (auth()->user()->isAdmin())
-                                                  {{ __('Dashboard') }}
-                                                @endif
-                                    </a>                                             
-                            </li>
-
                         @endguest
                     </ul>
 
