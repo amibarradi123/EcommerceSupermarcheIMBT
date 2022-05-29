@@ -13,8 +13,13 @@ class Image extends Model
 
     protected $primaryKey="Id_Image";
 
+    protected $fillable = 
+    [
+        'url_Image', 'Id_Produit'
+    ];
+
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'Id_Produit');
     }
 }

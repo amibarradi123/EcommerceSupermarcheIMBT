@@ -147,31 +147,41 @@
             </div>
         @endif
            
-        <form action="#" method="POST">
+        <form action="{{ route('product.store') }}" method="POST">
             @csrf
           
              <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>nom :</strong>
-                        <input type="text" name="nom" class="form-control" placeholder="nom">
+                        <input type="text" name="Nom_Produit" class="form-control" placeholder="nom">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>prix :</strong>
-                        <input type="text" class="form-control" name="prix" placeholder="prix"></input>
+                        <input type="text" class="form-control" name="Prix_Produit" placeholder="prix"></input>
                     </div>
                 </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>qantité :</strong>
+                        <input type="text" class="form-control" name="Quantite_Produit" placeholder="quantité"></input>
+                    </div>
+                </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <label>Categories</label>
-                    <select name="category">
+                    <select name="Id_Categorie">
                         <option disable selected>--select category--</option>  
+                        <option disable selected>1</option>
+                        <option disable selected>2</option>
                     </select>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
-                    <input type="file" name="image">
+                    <input type="file" name="image" multiple>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Product;
+use App\Models\Image;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +38,32 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return view('create');
+        $request->validate([
+            'Nom_Produit' => 'required',
+            'Prix_Produit' => 'required',
+            'Quantite_Produit' => 'required',
+            'Id_Categorie' => 'required',
+
+
+        ]);
+  
+        Product::create($request->all());
+   
+
+        if($request->hasFile("img")){
+                $files=$request->file("img");
+                foreach($files as $file){
+                    $imageName=time().'_'.$file->getClientOriginalName();
+                    $request['url_Image']=$imageName;
+                    $request['Id_Produit']=$product->Id_Produit;
+                    $file->move(\public_path("/img"),$imageName);
+                    Image::create($request->all());
+
+                }
+            }
+
+        return redirect()->route('product.index')
+                        ->with('success','Product created successfully.');
     }
 
      /**
@@ -158,19 +184,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
           
-        if($id && $request->input('quantite'))
-     {
-         $cart = session()->get('cart');
-
-         $cart[$id]["quantite"] = $request->input('quantite');
-
-         session()->put('cart', $cart);
-
-         session()->flash('success', 'Cart updated successfully');
-     }
-     return redirect('cart');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -182,4 +196,6 @@ class ProductController extends Controller
 
       
     }
+
+
 }

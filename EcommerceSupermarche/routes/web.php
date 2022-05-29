@@ -26,9 +26,10 @@ Route::get('cart', 'App\Http\Controllers\ProductController@cart');
 Route::get('remove-from-cart/{id}', 'App\Http\Controllers\ProductController@remove');
 
 Route::resource('product', 'App\Http\Controllers\ProductController');
+//Route::resource('product', ProductController::class);
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
 Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
 
-Route::get('/create', 'App\Http\Controllers\ProductController@store');
+Route::get('/create', 'App\Http\Controllers\ProductController@create');
