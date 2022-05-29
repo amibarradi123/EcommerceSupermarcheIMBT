@@ -155,6 +155,15 @@
                                     </form>
                                 </div>
                             </li>
+
+                            <li class="nav-item dropdown">
+                                <a  class="nav-link" href="{{ url('/dashboard') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                               @if (auth()->user()->isAdmin())
+                                                  {{ __('Dashboard') }}
+                                                @endif
+                                    </a>                                             
+                            </li>
+
                         @endguest
                     </ul>
 
@@ -242,15 +251,8 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
-    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
     <!-- Contact Javascript File -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.7/jqBootstrapValidation.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-contact-form/1.4.1/js/contact-form.js"></script>
+    
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/js/main.js') }}"></script>

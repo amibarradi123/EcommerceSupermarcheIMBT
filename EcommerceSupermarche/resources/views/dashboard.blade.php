@@ -46,14 +46,6 @@
         {{-- admin part --}}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-        
-
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">BigAdmin part <div style="display: inline">              
-            <img src="{{asset('/icons/png/24x24/Boss.png')}}">
-          </div></h6>
-        </li>
-
         <li class="nav-item">
           <a class="nav-link text-white " href="/admin-ShowClients">
             
@@ -64,6 +56,11 @@
           </a>
         </li>
 
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">BigAdmin part <div style="display: inline">              
+            <img src="{{asset('/icons/png/24x24/Boss.png')}}">
+          </div></h6>
+        </li>
         <li class="nav-item">
           <a class="nav-link text-white " href="/admin-ShowCommandes">
             
@@ -342,7 +339,7 @@
     @endisset
 
     @isset($categories)
-    Categories LIST:
+    Commands LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -380,7 +377,7 @@
     @endisset
 
     @isset($codepromo)
-    Code promo LIST:
+    COMMENT LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -418,7 +415,7 @@
     @endisset
 
     @isset($commandes)
-    Commandes LIST:
+    USER LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -470,7 +467,7 @@
     @endisset
     
     @isset($commentaires)
-    Comments LIST:
+    RELATIONS LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -509,8 +506,10 @@
 </table>
     @endisset
 
+    
+    
     @isset($fournisseurs)
-    Fournisseurs LIST:
+    RELATIONS LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -551,8 +550,10 @@
 </table>
     @endisset
 
+    
+    
     @isset($livraisons)
-    Livraisons LIST:
+    RELATIONS LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -593,8 +594,10 @@
 </table>
     @endisset
 
+    
+    
     @isset($livreurs)
-    Livreurs LIST:
+    RELATIONS LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -636,7 +639,7 @@
     
     
     @isset($produits)
-    Products LIST:
+    RELATIONS LIST:
 
     <table class="table table-striped table-hover" >
         
@@ -680,7 +683,7 @@
     @endisset
     
     @isset($user)
-    Users LIST:
+    RELATIONS LIST:
 
     <table class="table table-striped table-hover" >
         
