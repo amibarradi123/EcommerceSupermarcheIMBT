@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3307
--- Creato il: Mag 26, 2022 alle 23:34
--- Versione del server: 10.4.21-MariaDB
--- Versione PHP: 7.3.31
+-- Hôte : localhost:3306
+-- Généré le : mar. 31 mai 2022 à 15:38
+-- Version du serveur : 5.7.33
+-- Version de PHP : 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ecommercesupermarche`
+-- Base de données : `ecommercesupermarche`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `categories`
+-- Structure de la table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -34,7 +34,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `categories`
+-- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`Id_Categorie`, `Nom_Catégorie`, `Photo_Categorie`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `categories` (`Id_Categorie`, `Nom_Catégorie`, `Photo_Categorie`) V
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `clients`
+-- Structure de la table `clients`
 --
 
 CREATE TABLE `clients` (
@@ -58,7 +58,7 @@ CREATE TABLE `clients` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `codepromo`
+-- Structure de la table `codepromo`
 --
 
 CREATE TABLE `codepromo` (
@@ -70,7 +70,7 @@ CREATE TABLE `codepromo` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `commandes`
+-- Structure de la table `commandes`
 --
 
 CREATE TABLE `commandes` (
@@ -87,7 +87,7 @@ CREATE TABLE `commandes` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `commentaires`
+-- Structure de la table `commentaires`
 --
 
 CREATE TABLE `commentaires` (
@@ -100,7 +100,7 @@ CREATE TABLE `commentaires` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `details_commande`
+-- Structure de la table `details_commande`
 --
 
 CREATE TABLE `details_commande` (
@@ -112,7 +112,23 @@ CREATE TABLE `details_commande` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `fournisseurs`
+-- Structure de la table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fournisseurs`
 --
 
 CREATE TABLE `fournisseurs` (
@@ -126,7 +142,7 @@ CREATE TABLE `fournisseurs` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `images_produit`
+-- Structure de la table `images_produit`
 --
 
 CREATE TABLE `images_produit` (
@@ -136,7 +152,7 @@ CREATE TABLE `images_produit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `images_produit`
+-- Déchargement des données de la table `images_produit`
 --
 
 INSERT INTO `images_produit` (`Id_Image`, `url_Image`, `Id_Produit`) VALUES
@@ -148,7 +164,7 @@ INSERT INTO `images_produit` (`Id_Image`, `url_Image`, `Id_Produit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `livraisons`
+-- Structure de la table `livraisons`
 --
 
 CREATE TABLE `livraisons` (
@@ -162,7 +178,7 @@ CREATE TABLE `livraisons` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `livreurs`
+-- Structure de la table `livreurs`
 --
 
 CREATE TABLE `livreurs` (
@@ -175,7 +191,29 @@ CREATE TABLE `livreurs` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `modepaiement`
+-- Structure de la table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `modepaiement`
 --
 
 CREATE TABLE `modepaiement` (
@@ -184,7 +222,7 @@ CREATE TABLE `modepaiement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `modepaiement`
+-- Déchargement des données de la table `modepaiement`
 --
 
 INSERT INTO `modepaiement` (`Id_ModePaiement`, `ModePaiement`) VALUES
@@ -196,7 +234,37 @@ INSERT INTO `modepaiement` (`Id_ModePaiement`, `ModePaiement`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `produits`
+-- Structure de la table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produits`
 --
 
 CREATE TABLE `produits` (
@@ -204,12 +272,12 @@ CREATE TABLE `produits` (
   `Nom_Produit` varchar(20) NOT NULL,
   `Prix_Produit` float NOT NULL,
   `Quantite_Produit` int(10) NOT NULL,
-  `Date_Pub_Produit` datetime(6) NOT NULL DEFAULT current_timestamp(6),
+  `Date_Pub_Produit` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `Id_Categorie` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `produits`
+-- Déchargement des données de la table `produits`
 --
 
 INSERT INTO `produits` (`Id_Produit`, `Nom_Produit`, `Prix_Produit`, `Quantite_Produit`, `Date_Pub_Produit`, `Id_Categorie`) VALUES
@@ -219,7 +287,7 @@ INSERT INTO `produits` (`Id_Produit`, `Nom_Produit`, `Prix_Produit`, `Quantite_P
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user`
+-- Structure de la table `user`
 --
 
 CREATE TABLE `user` (
@@ -231,30 +299,55 @@ CREATE TABLE `user` (
   `role` enum('admin','user') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Indici per le tabelle scaricate
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'benami', 'maziine@icloud.com', NULL, '$2y$10$nSaU4GVqIhieudIZnc4jAuUEuuUvTDzyEFeHW4sx0z3cCs/XA4DdS', 'user', NULL, '2022-05-31 14:23:09', '2022-05-31 14:23:09');
+
+--
+-- Index pour les tables déchargées
 --
 
 --
--- Indici per le tabelle `categories`
+-- Index pour la table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`Id_Categorie`);
 
 --
--- Indici per le tabelle `clients`
+-- Index pour la table `clients`
 --
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`Id_Client`);
 
 --
--- Indici per le tabelle `codepromo`
+-- Index pour la table `codepromo`
 --
 ALTER TABLE `codepromo`
   ADD PRIMARY KEY (`Id_CodePromo`);
 
 --
--- Indici per le tabelle `commandes`
+-- Index pour la table `commandes`
 --
 ALTER TABLE `commandes`
   ADD PRIMARY KEY (`Id_Commande`),
@@ -263,7 +356,7 @@ ALTER TABLE `commandes`
   ADD KEY `Paiement_Commande` (`ModePaiement`);
 
 --
--- Indici per le tabelle `commentaires`
+-- Index pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD PRIMARY KEY (`Id_Commentaire`),
@@ -271,27 +364,34 @@ ALTER TABLE `commentaires`
   ADD KEY `commentaire_produit1` (`Id_Produit`);
 
 --
--- Indici per le tabelle `details_commande`
+-- Index pour la table `details_commande`
 --
 ALTER TABLE `details_commande`
   ADD KEY `Produit_Commandes` (`Id_Commande`),
   ADD KEY `Produit_Commandes1` (`Id_Produit`);
 
 --
--- Indici per le tabelle `fournisseurs`
+-- Index pour la table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Index pour la table `fournisseurs`
 --
 ALTER TABLE `fournisseurs`
   ADD PRIMARY KEY (`Id_Fournisseur`);
 
 --
--- Indici per le tabelle `images_produit`
+-- Index pour la table `images_produit`
 --
 ALTER TABLE `images_produit`
   ADD PRIMARY KEY (`Id_Image`),
   ADD KEY `image_produit` (`Id_Produit`);
 
 --
--- Indici per le tabelle `livraisons`
+-- Index pour la table `livraisons`
 --
 ALTER TABLE `livraisons`
   ADD PRIMARY KEY (`Id_Livraison`),
@@ -299,100 +399,151 @@ ALTER TABLE `livraisons`
   ADD KEY `livreur_commande` (`Id_Livreur`);
 
 --
--- Indici per le tabelle `livreurs`
+-- Index pour la table `livreurs`
 --
 ALTER TABLE `livreurs`
   ADD PRIMARY KEY (`Id_Livreur`);
 
 --
--- Indici per le tabelle `modepaiement`
+-- Index pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `modepaiement`
 --
 ALTER TABLE `modepaiement`
   ADD PRIMARY KEY (`Id_ModePaiement`);
 
 --
--- Indici per le tabelle `produits`
+-- Index pour la table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Index pour la table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Index pour la table `produits`
 --
 ALTER TABLE `produits`
   ADD PRIMARY KEY (`Id_Produit`),
   ADD KEY `Produit_Categorie` (`Id_Categorie`);
 
 --
--- Indici per le tabelle `user`
+-- Index pour la table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`Id_Utilisateur`);
 
 --
--- AUTO_INCREMENT per le tabelle scaricate
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT per la tabella `categories`
+-- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `Id_Categorie` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `codepromo`
+-- AUTO_INCREMENT pour la table `codepromo`
 --
 ALTER TABLE `codepromo`
   MODIFY `Id_CodePromo` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `commandes`
+-- AUTO_INCREMENT pour la table `commandes`
 --
 ALTER TABLE `commandes`
   MODIFY `Id_Commande` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `commentaires`
+-- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
   MODIFY `Id_Commentaire` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `images_produit`
+-- AUTO_INCREMENT pour la table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `images_produit`
 --
 ALTER TABLE `images_produit`
   MODIFY `Id_Image` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT per la tabella `livraisons`
+-- AUTO_INCREMENT pour la table `livraisons`
 --
 ALTER TABLE `livraisons`
   MODIFY `Id_Livraison` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `livreurs`
+-- AUTO_INCREMENT pour la table `livreurs`
 --
 ALTER TABLE `livreurs`
   MODIFY `Id_Livreur` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `modepaiement`
+-- AUTO_INCREMENT pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `modepaiement`
 --
 ALTER TABLE `modepaiement`
   MODIFY `Id_ModePaiement` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT per la tabella `produits`
+-- AUTO_INCREMENT pour la table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
   MODIFY `Id_Produit` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT per la tabella `user`
+-- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
   MODIFY `Id_Utilisateur` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- Limiti per le tabelle scaricate
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Limiti per la tabella `commandes`
+-- Contraintes pour la table `commandes`
 --
 ALTER TABLE `commandes`
   ADD CONSTRAINT `Paiement_Commande` FOREIGN KEY (`ModePaiement`) REFERENCES `modepaiement` (`Id_ModePaiement`),
@@ -400,34 +551,34 @@ ALTER TABLE `commandes`
   ADD CONSTRAINT `commande_promo` FOREIGN KEY (`CodePromo`) REFERENCES `codepromo` (`Id_CodePromo`);
 
 --
--- Limiti per la tabella `commentaires`
+-- Contraintes pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD CONSTRAINT `commentaire_produit` FOREIGN KEY (`Id_Client`) REFERENCES `clients` (`Id_Client`),
   ADD CONSTRAINT `commentaire_produit1` FOREIGN KEY (`Id_Produit`) REFERENCES `produits` (`Id_Produit`);
 
 --
--- Limiti per la tabella `details_commande`
+-- Contraintes pour la table `details_commande`
 --
 ALTER TABLE `details_commande`
   ADD CONSTRAINT `Produit_Commandes` FOREIGN KEY (`Id_Commande`) REFERENCES `commandes` (`Id_Commande`),
   ADD CONSTRAINT `Produit_Commandes1` FOREIGN KEY (`Id_Produit`) REFERENCES `produits` (`Id_Produit`);
 
 --
--- Limiti per la tabella `images_produit`
+-- Contraintes pour la table `images_produit`
 --
 ALTER TABLE `images_produit`
   ADD CONSTRAINT `image_produit` FOREIGN KEY (`Id_Produit`) REFERENCES `produits` (`Id_Produit`);
 
 --
--- Limiti per la tabella `livraisons`
+-- Contraintes pour la table `livraisons`
 --
 ALTER TABLE `livraisons`
   ADD CONSTRAINT `commande_livraison` FOREIGN KEY (`Id_Commande`) REFERENCES `commandes` (`Id_Commande`),
   ADD CONSTRAINT `livreur_commande` FOREIGN KEY (`Id_Livreur`) REFERENCES `livreurs` (`Id_Livreur`);
 
 --
--- Limiti per la tabella `produits`
+-- Contraintes pour la table `produits`
 --
 ALTER TABLE `produits`
   ADD CONSTRAINT `Produit_Categorie` FOREIGN KEY (`Id_Categorie`) REFERENCES `categories` (`Id_Categorie`);
