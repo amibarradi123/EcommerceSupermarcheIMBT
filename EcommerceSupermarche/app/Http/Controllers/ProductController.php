@@ -135,6 +135,14 @@ class ProductController extends Controller
         return view('panier');
     }
 
+    public function updateQuantity(Request $request)
+    {
+        $cart = session()->get('cart'); 
+        $cart[$request->product_id]['quantite'] = $request->quantite;
+        session()->put('cart', $cart); // this code put product of choose in cart
+   
+        return redirect()->back();
+    }
 
     public function remove(Request $request,$id)
     {

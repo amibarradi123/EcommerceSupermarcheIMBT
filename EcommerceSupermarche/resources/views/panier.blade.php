@@ -44,21 +44,22 @@
                             <td class="align-middle">{{ $details['nom'] }}</td>
                             <td class="align-middle">MAD {{ $details['prix'] }},00</td>
                             <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 150px;">
-                                    <form action={{ route('product.update',$id) }} class="form-inline" method="POST">
+                                <div class="input-group quantity mx-auto" style="width: 200px;">
+                                    <form action={{ route('product.updateQuantity') }} class="form-inline" method="POST">
                                         @csrf
-                                        @method('PATCH')
                                         <div class="form-group mx-sm-3 mb-2">
-                                        <input type="number" name="quantite" value="{{ $details['quantite'] }}" class="form-control form-control-sm bg-secondary text-center"   />
-                                    <button class="btn btn-primary btn-sm"
-                                    type="submit" style="color: black;background-color:transparent;border:none;"><i class="fa fa-refresh"></i></a></button>
+                                            <input type="number" name="product_id" value="{{ $id }}" hidden>
+                                            <input type="number" name="quantite" value="{{ $details['quantite'] }}" class="form-control form-control-sm bg-secondary text-center"   />
+                                            <button class="btn btn-primary btn-sm" type="submit" style="color: black;background-color:transparent;border:none;">
+                                                <i class="fa fa-refresh"></i>
+                                            </button>
                                         </div>
                                     </form>
                                     
                                 </div>
                             </td>
                             <td class="align-middle">MAD {{$total}},00</td>
-                            <td class="align-middle"><a href="{{ url('remove-from-cart',$id) }}" class="btn btn-primary btn-sm" ><i class="fa fa-trash"></i></td>
+                            <td class="align-middle"><a href="{{ url('remove-from-cart',$id) }}" class="btn btn-primary btn-sm" ><i class="fa fa-trash"></i></a></td>
                         </tr>
                        @endforeach
                        @endif
@@ -91,8 +92,33 @@
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">MAD {{$total}},00</h5>
                         </div>
-                        <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
                     </div>
+                </div>
+                <div class="card border-secondary mb-5">
+                    <form action="{{ route('checkout') }}" method="POST">
+                    @csrf
+                        <div class="card-header bg-secondary border-0">
+                            <h4 class="font-weight-semi-bold m-0">Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3 pt-1">
+                                <h6 class="font-weight-medium">Paiement</h6>
+                                <select class="form-select" name="mode_paiement" required>
+                                    <option value="1">Paiement à la livraison</option>
+                                    <option value="2">Carte bancaire</option>
+                                    <option value="3">Virement</option>
+                                    <option value="4">PayPal</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-footer border-secondary bg-transparent">
+                            <div class="d-flex justify-content-between mt-2">
+                                <h5 class="font-weight-bold" style="margin-right: 20px;">Adresse</h5>
+                                <input type="text" name="address" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
+                        </div>
+                    </form>    
                 </div>
             </div>
         </div>

@@ -1,7 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +19,7 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return redirect('/home');
-});
+})->name('index');
 
 Route::get('add_to_cart/{Id_Produit}', 'App\Http\Controllers\ProductController@addcart');
 
@@ -25,6 +28,10 @@ Auth::routes();
 Route::get('cart', 'App\Http\Controllers\ProductController@cart');
 
 Route::get('remove-from-cart/{id}', 'App\Http\Controllers\ProductController@remove');
+
+Route::post('checkout', [OrderController::class, 'checkout'])->name('checkout');
+
+Route::post('cart/update-quantity', [ProductController::class, 'updateQuantity'])->name('product.updateQuantity');
 
 Route::resource('product', 'App\Http\Controllers\ProductController');
 //Route::resource('product', ProductController::class);
